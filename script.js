@@ -1,4 +1,8 @@
+const button = document.querySelector('button')
+
+
 const timeline = gsap.timeline({
+    paused: true,
     default: {
         ease: 'power2.inOut',
         duration: 1,
@@ -6,7 +10,15 @@ const timeline = gsap.timeline({
 })
 
 timeline
-.from('.circle', {left:'-50vw'})
-.from('.eyes-one', {left:'-50vw'})
-.from('.eyes-two', {left:'-50vw'})
-.from('.mouth', {left:'-50vw'})
+.fromTo('.smiley .face', {top:'-50vw', opacity: 0}, {top: '0', opacity: 1})
+.from('.smiley .eyes-one', {left:'-50vw', opacity: 0}, '-=0.5')
+.from('.smiley .eyes-two', {right:'-50vw', opacity: 0}, '-=0.5')
+.from('.smiley .mouth', {bottom:'-50vw', opacity: 0}, '-=0.5')
+
+button.addEventListener('click', ()=> {
+    toggleTween(timeline)
+})
+
+function toggleTween(tween){
+    tween.reversed() ? tween.play() : tween.reverse()
+}

@@ -1,33 +1,492 @@
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Comfortaa&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-body{
+body {
+    background: #4b4b4b;
+    color: #ffffff;
+    padding: 15px;
+
+  font-family: "Comfortaa", cursive;
+}
+form{
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+form .emoji-container {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form .emoji-container .swiper-container-face {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  transform: translateY(-50%);
+  top: 25%;
+  overflow: hidden;
+}
+form .emoji-container .swiper-container-face .swiper-wrapper {
+  transition-delay: 0.5s;
+}
+form .emoji-container .swiper-container-face .swiper-wrapper .swiper-slide {
+  width: 50%;
+}
+form .emoji-container .swiper-container-face .swiper-wrapper .swiper-slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  opacity: 0.2;
+  transition: all 0.4s;
+}
+form .emoji-container .swiper-container-face .swiper-wrapper .swiper-slide-active {
+  transition: all 0.4s;
+  opacity: 1;
+}
+form
+  .emoji-container
+  .swiper-container-face
+  .swiper-wrapper
+  .swiper-slide
+  .eyes
+  svg,
+  form
+  .emoji-container
+  .swiper-container-face
+  .swiper-wrapper
+  .swiper-slide
+  .eyes
+  img {
+  width: 100%;
+}
+form
+  .emoji-container
+  .swiper-container-face
+  .swiper-wrapper
+  .swiper-slide
+  .eyes::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 4px);
+  background: #ffffff50;
+  mix-blend-mode: multiply;
+  border-radius: 5px;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  transition: all 1s ease-in-out;
+}
+form
+  .emoji-container
+  .swiper-container-face
+  .swiper-wrapper
+  .swiper-slide
+  .eyes:hover:after {
+  opacity: 1;
+}
+form .emoji-container .swiper-container-mouth {
+  position: absolute;
+  width: 100%;
+  height: 150px;
+  transform: translateY(-50%);
+  top: 75%;
+
+  overflow: hidden;
+}
+form .emoji-container .swiper-container-mouth .swiper-wrapper {
+  transition-delay: 0.5s;
+}
+form .emoji-container .swiper-container-mouth .swiper-wrapper .swiper-slide {
+  width: 50%;
+}
+form .emoji-container .swiper-container-mouth .swiper-wrapper .swiper-slide {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0.2;
+  transition: all 0.4s;
+}
+form .emoji-container .swiper-container-mouth .swiper-wrapper .swiper-slide-active {
+  opacity: 1;
+  transition: all 0.4s;
+}
+form
+  .emoji-container
+  .swiper-container-mouth
+  .swiper-wrapper
+  .swiper-slide
+  .eyes
+  svg {
+  width: 100%;
+}
+form
+  .emoji-container
+  .swiper-container-mouth
+  .swiper-wrapper
+  .swiper-slide
+  .eyes::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: calc(100% - 4px);
+  background: #ffffff50;
+  mix-blend-mode: multiply;
+  border-radius: 5px;
+  opacity: 0;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  transition: all 1s ease-in-out;
+}
+form
+  .emoji-container
+  .swiper-container-mouth
+  .swiper-wrapper
+  .swiper-slide
+  .eyes:hover:after {
+  opacity: 1;
+}
+
+
+form .selection-container {
+  width: 100%;
+  height: 40%;
+  padding: 15px;
+  gap: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+form .selection-container .couleur,
+form .selection-container .yeux,
+form .selection-container .bouche {
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  background: transparent;
+  transition: all 0.4s;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form .selection-container .couleur:hover,
+form .selection-container .yeux:hover,
+form .selection-container .bouche:hover {
+  transform: scale(1.01);
+  background: #ffffff50;
+}
+
+.swiper {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: initial;
+}
+
+.swiper-slide {
+  background-size: cover;
+  background-position: center;
+}
+
+.mySwiper {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiper .swiper-slide {
+  width: 10%;
+  height: 100%;
+  opacity: 0.2;
+  transition: all 0.4s;
+}
+
+.mySwiper .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.mySwiper .swiper-slide svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.mySwiperMouthThumbs {
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+
+.mySwiperMouthThumbs .swiper-slide {
+  width: 10%;
+  height: 100%;
+    opacity: 0.2;
+  transition: all 0.4s;
+}
+
+.mySwiperMouthThumbs .swiper-slide-thumb-active {
+  opacity: 1;
+}
+
+.mySwiperMouthThumbs .swiper-slide svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+.swiper-button-next::after {
+    color: #ffffff;
+}
+
+.swiper-button-prev::after {
+    color: #ffffff;
+}
+
+.leSmile {
     width: 100%;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+.smileFace{
+    position: absolute;
+}
+.smileFace-Eyes{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+.smileFace-Mouth{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    background: transparent;
+    transition: all 0.4s;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: #ffffff50;
+    gap: 10px;
+  }
+  
+.button:hover{
+    transform: scale(1.01);
+    background: #ffffff;
+    color: black;
+}
+.smileFace-hand{
+    z-index: -10;
+    position: absolute;
+    top: -20%;
+    right: 40%;
+}
+.leSmile svg {
+    z-index: 0;
+}
+.smileFace-hand-second{
+    z-index: 1;
+    position: absolute;
+    top: -123%;
+    left: 40%;
+}
+.smileFace-hand-third{
+    z-index: 1;
+    position: absolute;
+    top: -60%;
+    left: 40%;
+}
+.swiper-face svg path{
+    transition: .5s;
+}
 
+
+.choosen-color{
+
+  display: flex;
+  justify-content: space-between;
 }
-.container {
-    width: 100%;
-    height: 90vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+input:hover {
+  cursor: pointer;
 }
-.smiley{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+input[type="radio"]:checked,
+input[type="radio"]:focus {
+  background-color: #FF1E1E;
 }
-svg{
-    position: absolute;
+label {
+  position: relative;
 }
-.smiley .face{
-    /* opacity: 0; */
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 40px;
+  height: 40px;
+}
+
+input[type="radio"] + .radioButton {
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.radioButton {
+  cursor: pointer;
+}
+.radioButton {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.radioButton i {
+  transition: 400ms all;
+  font-size: 20px;
+}
+.radioButton.blue i {
+  color: #FFCC4D;
+}
+
+input[type="radio"]:hover + .radioButton.blue,
+input[type="radio"]:checked + .radioButton.blue,
+input[type="radio"]:focus + .radioButton.blue {
+  border-color: #FFCC4D;
+}
+
+.radioButton.red i {
+  color: #FF1E1E;
+}
+
+input[type="radio"]:hover + .radioButton.red,
+input[type="radio"]:checked + .radioButton.red,
+input[type="radio"]:focus + .radioButton.red {
+  border-color: #FF1E1E;
+}
+
+.radioButton.green i {
+  color: #7BFF4D;
+}
+
+input[type="radio"]:hover + .radioButton.green,
+input[type="radio"]:checked + .radioButton.green,
+input[type="radio"]:focus + .radioButton.green {
+  border-color: #7BFF4D;
+}
+
+.radioButton.yellow i {
+  color: #4DFF9F;
+}
+
+input[type="radio"]:hover + .radioButton.yellow,
+input[type="radio"]:checked + .radioButton.yellow,
+input[type="radio"]:focus + .radioButton.yellow {
+  border-color: #4DFF9F;
+}
+.radioButton.aqua i {
+  color: #4DFFEA;
+}
+
+input[type="radio"]:hover + .radioButton.aqua,
+input[type="radio"]:checked + .radioButton.aqua,
+input[type="radio"]:focus + .radioButton.aqua {
+  border-color: #4DFFEA;
+}
+.radioButton.orange i {
+  color: #4D74FF;
+}
+
+input[type="radio"]:hover + .radioButton.orange,
+input[type="radio"]:checked + .radioButton.orange,
+input[type="radio"]:focus + .radioButton.orange {
+  border-color: #4D74FF;
+}
+.radioButton.fuschia i {
+  color: #4D8AFF;
+}
+
+input[type="radio"]:hover + .radioButton.fuschia,
+input[type="radio"]:checked + .radioButton.fuschia,
+input[type="radio"]:focus + .radioButton.fushcia {
+  border-color: #4D8AFF;
+}
+.radioButton.purple i {
+  color: #F14DFF;
+}
+
+input[type="radio"]:hover + .radioButton.purple,
+input[type="radio"]:checked + .radioButton.purple,
+input[type="radio"]:focus + .radioButton.purple {
+  border-color: #F14DFF;
+}
+.radioButton.lime i {
+  color: #FF4D98;
+}
+
+input[type="radio"]:hover + .radioButton.lime,
+input[type="radio"]:checked + .radioButton.lime,
+input[type="radio"]:focus + .radioButton.lime {
+  border-color: #FF4D98;
+}
+.radioButton.teal i {
+  color: #FF4D4D;
+}
+
+input[type="radio"]:hover + .radioButton.teal,
+input[type="radio"]:checked + .radioButton.teal,
+input[type="radio"]:focus + .radioButton.teal {
+  border-color: #FF4D4D;
+}
+.radioButton.navy i {
+  color: navy;
+}
+
+input[type="radio"]:hover + .radioButton.navy,
+input[type="radio"]:checked + .radioButton.navy,
+input[type="radio"]:focus + .radioButton.navy {
+  border-color: navy;
+}
+.radioButton.darkred i {
+  color: darkred;
+}
+
+input[type="radio"]:hover + .radioButton.darkred,
+input[type="radio"]:checked + .radioButton.darkred,
+input[type="radio"]:focus + .radioButton.darkred {
+  border-color: darkred;
 }

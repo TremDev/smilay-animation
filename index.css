@@ -8,7 +8,7 @@ body {
     background: #4b4b4b;
     color: #ffffff;
     padding: 15px;
-
+    overflow: hidden;
   font-family: "Comfortaa", cursive;
 }
 form{
